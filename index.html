@@ -101,22 +101,39 @@
           </dl>
         </div>
         <div class="relative">
-          <div class="aspect-[5/6] rounded-3xl bg-gradient-to-br from-sky-100 to-indigo-50 dark:from-sky-900/20 dark:to-indigo-900/20 border border-slate-200 dark:border-slate-800 p-6 flex items-end">
-            <div class="w-full">
-              <img alt="Avatar" class="w-28 h-28 rounded-2xl ring-4 ring-white dark:ring-slate-900 shadow -mt-12" src="https://res.cloudinary.com/daxlau2bx/image/upload/v1764469085/me_zmdhmy.jpg?seed=trendy" />
-              <div class="mt-4 grid gap-3">
-                <article class="card p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <h3 class="font-semibold">Currently</h3>
-                  <p class="text-sm text-slate-600 dark:text-slate-300">MSCS student at USC developing a FinBERT-powered trading framework while strengthening skills in system design, ML engineering and problem solving. Looking for internship opportunities for Summer 2026.</p>
-                </article>
-                <article class="card p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <h3 class="font-semibold">Stack</h3>
-                  <p class="text-sm text-slate-600 dark:text-slate-300">Python, Java, React, Javascript, Spring Boot, Machine Learning, AWS, vLLM.</p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="aspect-[5/6] rounded-3xl overflow-hidden bg-gradient-to-br from-sky-100 to-indigo-50 dark:from-sky-900/20 dark:to-indigo-900/20 border border-slate-200 dark:border-slate-800 p-6 flex items-end relative">
+
+    <!-- Background image -->
+    <img 
+      alt="Avatar"
+      src="https://res.cloudinary.com/daxlau2bx/image/upload/v1764469085/me_zmdhmy.jpg?seed=trendy"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+
+    <!-- Overlay (optional darker tint so text stays readable) -->
+    <div class="absolute inset-0 bg-black/30 dark:bg-black/40"></div>
+
+    <!-- Content on top -->
+    <div class="relative z-10 w-full">
+      <div class="mt-4 grid gap-3">
+        <article class="card p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold">Currently</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            MSCS student at USC developing a FinBERT-powered trading framework while strengthening skills in system design, ML engineering and problem solving. Looking for internship opportunities for Summer 2026.
+          </p>
+        </article>
+
+        <article class="card p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold">Stack</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Python, Java, React, Javascript, Spring Boot, Machine Learning, AWS, vLLM.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   </section>
