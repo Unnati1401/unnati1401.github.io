@@ -146,22 +146,12 @@
   .stat .num{font-family:var(--display);font-size:1.7rem;font-weight:700;color:var(--text)}
   .stat .lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
 
-  /* ---------- HERO SIGNATURE: Raft node cluster ---------- */
-  .cluster{position:relative;aspect-ratio:1;max-width:340px;margin-left:auto}
-  .cluster svg{width:100%;height:100%;overflow:visible}
-  .edge{stroke:var(--line);stroke-width:1.4}
-  .edge.active{stroke:var(--cyan-dim);stroke-width:1.8}
-  .node circle{fill:var(--surface);stroke:var(--line);stroke-width:1.6;transition:.3s}
-  .node.leader circle{fill:rgba(126,224,168,.14);stroke:var(--leader);stroke-width:2}
-  .node text{font-family:var(--mono);font-size:9px;fill:var(--muted);text-anchor:middle;dominant-baseline:middle}
-  .node.leader text{fill:var(--leader)}
-  .heartbeat{fill:none;stroke:var(--cyan);stroke-width:2;stroke-dasharray:3 5;opacity:.55}
-  @keyframes dash{to{stroke-dashoffset:-16}}
-  .heartbeat.anim{animation:dash 1.1s linear infinite}
-  @media (prefers-reduced-motion: reduce){.heartbeat.anim{animation:none}}
-  .cluster-cap{
-    font-family:var(--mono);font-size:.68rem;color:var(--faint);
-    text-align:center;margin-top:14px;letter-spacing:.05em;
+  /* ---------- HERO PHOTO ---------- */
+  .hero-photo-wrap{position:relative;max-width:340px;margin-left:auto}
+  .hero-photo{
+    width:100%;aspect-ratio:1;object-fit:cover;
+    border-radius:16px;border:1px solid var(--line);
+    box-shadow:0 24px 60px -30px rgba(56,189,248,.35);
   }
 
   /* ---------- SECTION SCAFFOLD ---------- */
@@ -174,12 +164,7 @@
   .sec-head p{color:var(--muted);margin-top:8px;max-width:52ch}
 
   /* ---------- ABOUT ---------- */
-  .about-grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
-  .avatar{
-    width:150px;height:150px;border-radius:14px;object-fit:cover;
-    border:1px solid var(--line);
-  }
-  .about-body p{color:var(--muted);margin-bottom:16px;max-width:60ch}
+  .about-body p{color:var(--muted);margin-bottom:16px;max-width:68ch}
   .about-body p strong{color:var(--text);font-weight:600}
   .flag{
     font-family:var(--mono);font-size:.7rem;color:var(--amber);
@@ -212,8 +197,10 @@
     transition:transform .2s ease,border-color .2s ease;
   }
   .card:hover{transform:translateY(-4px);border-color:var(--cyan-dim)}
-  .card-cover{height:120px;position:relative;overflow:hidden}
+  .card-cover{height:130px;position:relative;overflow:hidden}
   .card-cover .grid-bg{position:absolute;inset:0;opacity:.5}
+  .cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+  .card:hover .cover-img{transform:scale(1.05)}
   .card-cover .badge{
     position:absolute;top:12px;left:12px;
     font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
@@ -269,10 +256,8 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr;gap:36px}
-    .cluster{margin:0 auto;max-width:280px}
+    .hero-photo-wrap{margin:0 auto;max-width:260px;order:-1}
     .proj-grid,.skills-grid{grid-template-columns:1fr}
-    .about-grid{grid-template-columns:1fr}
-    .avatar{width:110px;height:110px}
     .nav-links{
       display:none;position:absolute;top:100%;left:0;right:0;
       flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px 0;
@@ -319,28 +304,8 @@
       </div>
     </div>
 
-    <!-- SIGNATURE: a small Raft-style cluster. One leader node, heartbeat to followers. -->
-    <div>
-      <div class="cluster" aria-hidden="true">
-        <svg viewBox="0 0 200 200">
-          <!-- edges -->
-          <line class="edge active" x1="100" y1="100" x2="100" y2="30"/>
-          <line class="edge active" x1="100" y1="100" x2="165" y2="75"/>
-          <line class="edge active" x1="100" y1="100" x2="150" y2="160"/>
-          <line class="edge active" x1="100" y1="100" x2="50"  y2="160"/>
-          <line class="edge active" x1="100" y1="100" x2="35"  y2="75"/>
-          <!-- animated heartbeat pulse traveling one edge -->
-          <line class="heartbeat anim" x1="100" y1="100" x2="100" y2="30"/>
-          <!-- follower nodes -->
-          <g class="node"><circle cx="100" cy="30" r="15"/><text x="100" y="30">F</text></g>
-          <g class="node"><circle cx="165" cy="75" r="15"/><text x="165" y="75">F</text></g>
-          <g class="node"><circle cx="150" cy="160" r="15"/><text x="150" y="160">F</text></g>
-          <g class="node"><circle cx="50"  cy="160" r="15"/><text x="50"  y="160">F</text></g>
-          <g class="node"><circle cx="35"  cy="75" r="15"/><text x="35"  y="75">F</text></g>
-          <!-- leader -->
-          <g class="node leader"><circle cx="100" cy="100" r="20"/><text x="100" y="100">LEADER</text></g>
-        </svg>
-      </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="https://res.cloudinary.com/daxlau2bx/image/upload/v1764469589/me_ydfx0g.jpg" alt="Portrait of Unnati Nandrekar" />
     </div>
   </div>
 </header>
@@ -348,9 +313,8 @@
 <!-- ============================== ABOUT ============================== -->
 <section id="about">
   <div class="wrap about-grid reveal">
-    <img class="avatar" src="https://res.cloudinary.com/daxlau2bx/image/upload/v1764469589/me_ydfx0g.jpg" alt="Portrait of Unnati Nandrekar" />
     <div class="about-body">
-      <span class="eyebrow">// about</span>
+      <span class="eyebrow">about</span>
       <p style="margin-top:14px">Currently completing my <strong>MS in Computer Science at USC</strong>
         (GPA 3.81, Dec 2026),
         while interning as a software engineer at both <strong>Link Capital</strong> and the <strong>University of Southern California</strong> — building production full-stack platforms, scalable backend APIs, and data pipelines across both roles.</p>
@@ -363,7 +327,7 @@
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">// experience</span>
+      <span class="eyebrow">experience</span>
       <h2>Where I've built things</h2>
     </div>
     <div class="timeline reveal">
@@ -406,7 +370,7 @@
 <section id="projects">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">// selected work</span>
+      <span class="eyebrow">selected work</span>
       <h2>Projects I'm proud of</h2>
       <p>More on <a href="https://github.com/unnati1401" target="_blank" rel="noopener" style="color:var(--cyan)">GitHub ↗</a></p>
     </div>
@@ -432,7 +396,7 @@
 
       <article class="card reveal">
         <div class="card-cover">
-          <div class="grid-bg" style="background:linear-gradient(135deg,#0f2530,#101820);background-image:radial-gradient(circle,#1e6f9233 1px,transparent 1px);background-size:16px 16px;"></div>
+          <img class="cover-img" src="https://t3.ftcdn.net/jpg/05/49/66/10/360_F_549661096_ehKgCaLF0ZlisVj7ZvxCvscsnFQFHzrr.jpg" alt="Fault-tolerant Raft consensus system" loading="lazy" />
           <span class="badge">Distributed Systems</span>
         </div>
         <div class="card-body">
@@ -448,7 +412,7 @@
 
       <article class="card reveal">
         <div class="card-cover">
-          <div class="grid-bg" style="background:linear-gradient(135deg,#1a1030,#101822);background-image:repeating-linear-gradient(45deg,#38bdf822 0 1px,transparent 1px 12px);"></div>
+          <img class="cover-img" src="https://images.unsplash.com/photo-1633362057641-db95580aaef1?q=80&amp;w=870&amp;auto=format&amp;fit=crop" alt="ReaderVerse book recommendation engine" loading="lazy" />
           <span class="badge">Full-Stack · Data</span>
         </div>
         <div class="card-body">
@@ -464,7 +428,7 @@
 
       <article class="card reveal">
         <div class="card-cover">
-          <div class="grid-bg" style="background:radial-gradient(circle at 70% 30%,#2a1420,transparent 55%),linear-gradient(135deg,#101820,#161020);"></div>
+          <img class="cover-img" src="https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&amp;w=955&amp;auto=format&amp;fit=crop" alt="Multi-agent financial trading framework" loading="lazy" />
           <span class="badge">AI / ML</span>
         </div>
         <div class="card-body">
@@ -480,7 +444,7 @@
 
       <article class="card reveal">
         <div class="card-cover">
-          <div class="grid-bg" style="background:linear-gradient(135deg,#10221c,#101820);background-image:radial-gradient(circle,#7ee0a822 1.5px,transparent 1.5px);background-size:20px 20px;"></div>
+          <img class="cover-img" src="https://thedatafrog.com/static/blog/images/2019/10/dessin_transfer_learning_crop-1-1024x794.jpg" alt="Transfer learning image classification" loading="lazy" />
           <span class="badge">AI / ML</span>
         </div>
         <div class="card-body">
@@ -496,7 +460,7 @@
 
       <article class="card reveal">
         <div class="card-cover">
-          <div class="grid-bg" style="background:linear-gradient(135deg,#111a26,#0f1620);background-image:repeating-linear-gradient(0deg,#38bdf81a 0 1px,transparent 1px 14px);"></div>
+          <img class="cover-img" src="https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Edu-Pro blockchain credential system" loading="lazy" />
           <span class="badge">Research · Publication</span>
         </div>
         <div class="card-body">
@@ -518,7 +482,7 @@
 <section id="skills">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">// toolkit</span>
+      <span class="eyebrow">toolkit</span>
       <h2>Skills</h2>
     </div>
     <div class="skills-grid reveal">
@@ -577,7 +541,7 @@
 <section id="contact">
   <div class="wrap reveal">
     <div class="contact-card">
-      <span class="eyebrow">// contact</span>
+      <span class="eyebrow">contact</span>
       <h2>Let's build something</h2>
       <p>Best way to reach me is email — I check LinkedIn daily too. Open to full-time backend, distributed systems, infrastructure, and AI/ML roles starting January 2027.</p>
       <div class="contact-links">
