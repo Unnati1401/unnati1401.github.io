@@ -1,337 +1,621 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unnati Ulhas Nandrekar - Software Engineer | AI/ML</title>
-  <meta name="description" content="Portfolio of Unnati — Software Engineer focused on AI/ML, data, and full‑stack systems. Seeking Summer 2026 internships." />
-  <meta name="author" content="Unnati" />
-  <meta property="og:title" content="Software Engineer | AI/ML" />
-  <meta property="og:description" content="Projects, experience, and contact for Summer 2026 internships." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/000?v=4" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Tailwind via CDN (for a single-file site). For production projects, prefer a proper build. -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
-          boxShadow: { glow: '0 0 0 6px rgb(14 165 233 / 0.15)' }
-        }
-      },
-      darkMode: 'class'
-    }
-  </script>
-  <style>
-    html, body { height: 100%; }
-    .prose a{ text-decoration: underline; text-underline-offset: 2px; }
-    /* Smooth card hover */
-    .card { transition: transform .2s ease, box-shadow .2s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgb(0 0 0 / .1) }
-    /* Focus ring */
-    .focus-ring:focus { outline: none; box-shadow: var(--ring, 0 0 0 3px rgba(14,165,233,.5)); }
-  </style>
-  <script>
-    // Dark mode persistence
-    (() => {
-      const user = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (user === 'dark' || (!user && systemDark)) document.documentElement.classList.add('dark');
-    })();
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Unnati Ulhas Nandrekar",
-    "jobTitle": "Software Engineer",
-    "url": "https://github.com/unnati1401",
-    "sameAs": ["https://github.com/unnati1401", "https://www.linkedin.com/in/unnati-nandrekar/"]
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- ============================================================
+     METADATA  —  aligned to backend-first, Jan 2027 full-time.
+     NOTE: OG image now points to your real avatar, not u/000.
+     ============================================================ -->
+<title>Unnati Nandrekar — Backend & Distributed Systems Engineer</title>
+<meta name="description" content="Backend-focused software engineer building scalable distributed systems, data-intensive platforms, and AI/ML services. MS CS @ USC. Open to full-time roles starting January 2027." />
+<meta name="author" content="Unnati Nandrekar" />
+<meta name="theme-color" content="#0d1117" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Unnati Nandrekar — Backend & Distributed Systems Engineer" />
+<meta property="og:description" content="Scalable backend systems, distributed infrastructure, and AI/ML engineering. Open to full-time roles starting January 2027." />
+<meta property="og:image" content="https://res.cloudinary.com/daxlau2bx/image/upload/v1764469589/me_ydfx0g.jpg" />
+<meta property="og:url" content="https://unnati1401.github.io/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#0d1117;          /* base background */
+    --surface:#151b23;      /* elevated cards */
+    --surface-2:#1b232c;    /* hover / nested */
+    --line:#232c37;         /* hairline borders */
+    --text:#e7ebf0;         /* primary text */
+    --muted:#8b96a5;        /* secondary text */
+    --faint:#5c6672;        /* tertiary / captions */
+    --cyan:#38bdf8;         /* primary signal (systems) */
+    --cyan-dim:#1e6f92;
+    --amber:#f0a868;        /* secondary signal (AI/ML, in-progress) */
+    --leader:#7ee0a8;       /* the "leader" node accent */
+    --display:'Space Grotesk', sans-serif;
+    --body:'Inter', sans-serif;
+    --mono:'JetBrains Mono', monospace;
+    --maxw:1080px;
   }
-  </script>
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--cyan);color:var(--ink)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--cyan);
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(13,17,23,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-family:var(--mono);font-weight:600;font-size:.95rem;letter-spacing:-.01em}
+  .brand span{color:var(--cyan)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{
+    font-family:var(--mono);font-size:.82rem;color:var(--muted);
+    transition:color .18s ease;
+  }
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--text)}
+  .nav-cta{
+    border:1px solid var(--cyan);color:var(--cyan)!important;
+    padding:7px 15px;border-radius:6px;
+    transition:background .18s ease,color .18s ease;
+  }
+  .nav-cta:hover{background:var(--cyan);color:var(--ink)!important}
+  .menu-btn{display:none;background:none;border:0;color:var(--text);font-size:1.4rem;cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:96px 0 72px;position:relative}
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+  }
+  .status{
+    font-family:var(--mono);font-size:.75rem;color:var(--leader);
+    display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
+  }
+  .status::before{
+    content:"";width:8px;height:8px;border-radius:50%;
+    background:var(--leader);box-shadow:0 0 0 0 rgba(126,224,168,.5);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(126,224,168,.45)}
+    70%{box-shadow:0 0 0 9px rgba(126,224,168,0)}
+    100%{box-shadow:0 0 0 0 rgba(126,224,168,0)}
+  }
+  @media (prefers-reduced-motion: reduce){.status::before{animation:none}}
+
+  h1{
+    font-family:var(--display);
+    font-size:clamp(2.4rem,5.2vw,3.6rem);
+    line-height:1.04;font-weight:700;letter-spacing:-.02em;
+    margin-bottom:20px;
+  }
+  h1 .accent{color:var(--cyan)}
+  .lede{color:var(--muted);font-size:1.06rem;max-width:46ch;margin-bottom:30px}
+  .lede strong{color:var(--text);font-weight:600}
+
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:38px}
+  .btn{
+    font-family:var(--mono);font-size:.85rem;
+    padding:11px 20px;border-radius:7px;cursor:pointer;
+    transition:transform .15s ease,background .18s ease,border-color .18s ease;
+    border:1px solid var(--line);
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--cyan);color:var(--ink);border-color:var(--cyan);font-weight:600}
+  .btn-primary:hover{background:#5fcbfa}
+  .btn-ghost{color:var(--text)}
+  .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+
+  .stats{display:flex;gap:36px;flex-wrap:wrap}
+  .stat .num{font-family:var(--display);font-size:1.7rem;font-weight:700;color:var(--text)}
+  .stat .lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+
+  /* ---------- HERO SIGNATURE: Raft node cluster ---------- */
+  .cluster{position:relative;aspect-ratio:1;max-width:340px;margin-left:auto}
+  .cluster svg{width:100%;height:100%;overflow:visible}
+  .edge{stroke:var(--line);stroke-width:1.4}
+  .edge.active{stroke:var(--cyan-dim);stroke-width:1.8}
+  .node circle{fill:var(--surface);stroke:var(--line);stroke-width:1.6;transition:.3s}
+  .node.leader circle{fill:rgba(126,224,168,.14);stroke:var(--leader);stroke-width:2}
+  .node text{font-family:var(--mono);font-size:9px;fill:var(--muted);text-anchor:middle;dominant-baseline:middle}
+  .node.leader text{fill:var(--leader)}
+  .heartbeat{fill:none;stroke:var(--cyan);stroke-width:2;stroke-dasharray:3 5;opacity:.55}
+  @keyframes dash{to{stroke-dashoffset:-16}}
+  .heartbeat.anim{animation:dash 1.1s linear infinite}
+  @media (prefers-reduced-motion: reduce){.heartbeat.anim{animation:none}}
+  .cluster-cap{
+    font-family:var(--mono);font-size:.68rem;color:var(--faint);
+    text-align:center;margin-top:14px;letter-spacing:.05em;
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:70px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:44px}
+  .sec-head h2{
+    font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.1rem);
+    font-weight:600;letter-spacing:-.01em;margin-top:10px;
+  }
+  .sec-head p{color:var(--muted);margin-top:8px;max-width:52ch}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
+  .avatar{
+    width:150px;height:150px;border-radius:14px;object-fit:cover;
+    border:1px solid var(--line);
+  }
+  .about-body p{color:var(--muted);margin-bottom:16px;max-width:60ch}
+  .about-body p strong{color:var(--text);font-weight:600}
+  .flag{
+    font-family:var(--mono);font-size:.7rem;color:var(--amber);
+    border:1px dashed var(--amber);border-radius:5px;padding:2px 7px;
+    opacity:.75;white-space:nowrap;
+  }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:26px}
+  .timeline::before{
+    content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1.5px;background:var(--line);
+  }
+  .tl-item{position:relative;padding-bottom:34px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-24px;top:6px;width:11px;height:11px;border-radius:50%;
+    background:var(--ink);border:2px solid var(--cyan-dim);
+  }
+  .tl-item.current::before{border-color:var(--leader);background:rgba(126,224,168,.2)}
+  .tl-date{font-family:var(--mono);font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+  .tl-role{font-family:var(--display);font-size:1.12rem;font-weight:600;margin:4px 0 2px}
+  .tl-role .co{color:var(--cyan)}
+  .tl-item p{color:var(--muted);font-size:.95rem;max-width:64ch;margin-top:6px}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--cyan-dim)}
+  .card-cover{height:120px;position:relative;overflow:hidden}
+  .card-cover .grid-bg{position:absolute;inset:0;opacity:.5}
+  .card-cover .badge{
+    position:absolute;top:12px;left:12px;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+    background:rgba(13,17,23,.72);border:1px solid var(--line);
+    padding:3px 9px;border-radius:20px;color:var(--text);
+  }
+  .card-cover .wip{color:var(--amber);border-color:var(--amber)}
+  .card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+  .card-body h3{font-family:var(--display);font-size:1.12rem;font-weight:600;line-height:1.25;margin-bottom:10px}
+  .card-body p{color:var(--muted);font-size:.9rem;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .tag{
+    font-family:var(--mono);font-size:.68rem;color:var(--muted);
+    background:var(--surface-2);border:1px solid var(--line);
+    padding:3px 8px;border-radius:5px;
+  }
+  .card-link{
+    font-family:var(--mono);font-size:.8rem;color:var(--cyan);margin-top:16px;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .card-link:hover{text-decoration:underline}
+  .card-link.muted{color:var(--faint);cursor:default}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .skill-block h4{
+    font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--cyan);margin-bottom:12px;
+  }
+  .skill-block .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    font-size:.85rem;color:var(--text);background:var(--surface);
+    border:1px solid var(--line);padding:5px 11px;border-radius:6px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-card{
+    background:linear-gradient(135deg,var(--surface),var(--ink));
+    border:1px solid var(--line);border-radius:16px;padding:48px 40px;text-align:center;
+  }
+  .contact-card h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.3rem);font-weight:600;margin-bottom:14px}
+  .contact-card p{color:var(--muted);max-width:48ch;margin:0 auto 28px}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  footer{padding:34px 0;text-align:center;border-top:1px solid var(--line)}
+  footer p{font-family:var(--mono);font-size:.74rem;color:var(--faint)}
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .cluster{margin:0 auto;max-width:280px}
+    .proj-grid,.skills-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr}
+    .avatar{width:110px;height:110px}
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px 0;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px 28px;width:100%}
+    .menu-btn{display:block}
+  }
+</style>
 </head>
-<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans">
-  <!-- Header / Nav -->
-  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-950/60 border-b border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="#home" class="font-extrabold tracking-tight text-lg">Home<span class="text-sky-500">.dev</span></a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a class="hover:text-sky-600" href="#projects">Projects</a>
-          <a class="hover:text-sky-600" href="#experience">Experience</a>
-          <a class="hover:text-sky-600" href="#skills">Skills</a>
-          <a class="hover:text-sky-600" href="#contact">Contact</a>
-          <a class="px-3 py-1.5 rounded-xl bg-sky-500 text-white hover:bg-sky-600 focus-ring" href="https://drive.google.com/file/d/10B9G8h_t_KVPi0YxxBYZS5zV3lMzkn5w/view?usp=sharing" id="resume-link">Resume</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <button id="themeToggle" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" aria-label="Toggle theme">
-            <!-- Sun / Moon icons -->
-            <svg id="sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v2m0 14v2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M3 12h2m14 0h2M5.64 18.36l1.42-1.42M16.94 7.06l1.42-1.42"/><circle cx="12" cy="12" r="4"/></svg>
-            <svg id="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-          <a class="md:hidden px-3 py-1.5 rounded-xl bg-sky-500 text-white hover:bg-sky-600" href="#contact">Contact</a>
-        </div>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">unnati<span>.dev</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="https://drive.google.com/file/d/10B9G8h_t_KVPi0YxxBYZS5zV3lMzkn5w/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">≡</button>
+  </div>
+</nav>
+
+<!-- ============================== HERO ============================== -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status">Open to full-time roles · starting Jan 2027</div>
+      <h1>Backend &amp; <span class="accent">distributed&nbsp;systems</span> engineer.</h1>
+      <p class="lede">I build scalable backend services, fault-tolerant distributed infrastructure, and data-intensive platforms — from <strong>production microservices at Deutsche Bank</strong> to a <strong>Raft consensus implementation</strong> in C++ to <strong>multi-tenant SaaS</strong>. Now extending into applied AI/ML engineering.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="https://github.com/unnati1401" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">3+ yrs</div><div class="lbl">Engineering</div></div>
+        <div class="stat"><div class="num">6</div><div class="lbl">Shipped projects</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">Publication</div></div>
       </div>
     </div>
-  </header>
 
-  <!-- Hero -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-sky-700 dark:text-sky-400 bg-sky-50 dark:bg-sky-900/30 px-2.5 py-1 rounded-full">Open to full time opportunities starting January 2027</p>
-          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">Backend Focused Software Engineer</h1>
-          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-prose">Software engineer with 2+ years of experience and strong foundations in distributed systems and AI/ML engineering. I build scalable backend systems, distributed infrastructure and data-intensive platforms. My work spans production microservices at Deutsche Bank, full-stack SaaS products and systems-level distributed consensus implementations.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a class="px-4 py-2 rounded-2xl bg-sky-600 text-white hover:bg-sky-700 focus-ring" href="#projects">View Projects</a>
-            <a class="px-4 py-2 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus-ring" href="#contact">Get in touch</a>
-            <a class="px-4 py-2 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus-ring" href="https://github.com/unnati1401" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="px-4 py-2 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus-ring" href="https://www.linkedin.com/in/unnati-nandrekar/" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
-          <dl class="mt-8 grid grid-cols-3 gap-4 text-center">
-            <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800"><dt class="text-xs text-slate-500">Experience</dt><dd class="text-2xl font-bold">3.6y</dd></div>
-            <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800"><dt class="text-xs text-slate-500">Projects</dt><dd class="text-2xl font-bold">5+</dd></div>
-            <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800"><dt class="text-xs text-slate-500">Publication</dt><dd class="text-2xl font-bold">1</dd></div>
-          </dl>
-        </div>
-        <div class="relative">
-  <div class="aspect-[5/6] rounded-3xl overflow-hidden bg-gradient-to-br from-sky-100 to-indigo-50 dark:from-sky-900/20 dark:to-indigo-900/20 border border-slate-200 dark:border-slate-800 p-6 flex items-end relative">
-
-    <!-- Background image -->
-    <img 
-      alt="Avatar"
-      src="https://res.cloudinary.com/daxlau2bx/image/upload/v1764469589/me_ydfx0g.jpg?seed=trendy"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-
-    <!-- Overlay (optional darker tint so text stays readable) -->
-    <div class="absolute inset-0 bg-black/30 dark:bg-black/40"></div>
-
-    <!-- Content on top -->
-    <div class="relative z-10 w-full">
-      <div class="mt-4 grid gap-3">
-        <article class="card p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <!--<h3 class="font-semibold">Currently</h3>-->
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Currently completing my MS in Computer Science at USC (GPA 3.88, Dec 2026), while interning as a Software Engineer at both Link Capital and the University of Southern California, building production full-stack platforms, scalable backend APIs and data pipelines across both roles.
-          </p>
-        </article>
-
-        <article class="card p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Stack</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Python, Java, React, Javascript, Spring Boot, Machine Learning, AWS, LLM.
-          </p>
-        </article>
+    <!-- SIGNATURE: a small Raft-style cluster. One leader node, heartbeat to followers. -->
+    <div>
+      <div class="cluster" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <!-- edges -->
+          <line class="edge active" x1="100" y1="100" x2="100" y2="30"/>
+          <line class="edge active" x1="100" y1="100" x2="165" y2="75"/>
+          <line class="edge active" x1="100" y1="100" x2="150" y2="160"/>
+          <line class="edge active" x1="100" y1="100" x2="50"  y2="160"/>
+          <line class="edge active" x1="100" y1="100" x2="35"  y2="75"/>
+          <!-- animated heartbeat pulse traveling one edge -->
+          <line class="heartbeat anim" x1="100" y1="100" x2="100" y2="30"/>
+          <!-- follower nodes -->
+          <g class="node"><circle cx="100" cy="30" r="15"/><text x="100" y="30">F</text></g>
+          <g class="node"><circle cx="165" cy="75" r="15"/><text x="165" y="75">F</text></g>
+          <g class="node"><circle cx="150" cy="160" r="15"/><text x="150" y="160">F</text></g>
+          <g class="node"><circle cx="50"  cy="160" r="15"/><text x="50"  y="160">F</text></g>
+          <g class="node"><circle cx="35"  cy="75" r="15"/><text x="35"  y="75">F</text></g>
+          <!-- leader -->
+          <g class="node leader"><circle cx="100" cy="100" r="20"/><text x="100" y="100">LEADER</text></g>
+        </svg>
       </div>
     </div>
   </div>
-</div>
+</header>
 
-      </div>
+<!-- ============================== ABOUT ============================== -->
+<section id="about">
+  <div class="wrap about-grid reveal">
+    <img class="avatar" src="https://res.cloudinary.com/daxlau2bx/image/upload/v1764469589/me_ydfx0g.jpg" alt="Portrait of Unnati Nandrekar" />
+    <div class="about-body">
+      <span class="eyebrow">// about</span>
+      <p style="margin-top:14px">Currently completing my <strong>MS in Computer Science at USC</strong>
+        (GPA 3.81, Dec 2026),
+        while interning as a software engineer at both <strong>Link Capital</strong> and the <strong>University of Southern California</strong> — building production full-stack platforms, scalable backend APIs, and data pipelines across both roles.</p>
+      <p>My background spans systems-level work (a distributed consensus engine, C++ performance profiling at Samsung R&amp;D), production backend at scale (risk platforms and ML services at Deutsche Bank), and full-stack SaaS. I like the hard parts: consistency guarantees, failure recovery, and making data-heavy systems fast.</p>
     </div>
-  </section>
-  <!-- Experience -->
-  <section id="experience" class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Experience</h2>
-      <ol class="mt-8 relative border-s border-slate-200 dark:border-slate-800">
-        <li class="ms-4 mt-8">
-          <div class="absolute w-3 h-3 bg-sky-500 rounded-full -left-1.5 mt-2"></div>
-          <time class="text-sm text-slate-500">February 2026 - Present</time>
-          <h3 class="text-lg font-semibold">Link Capital - Software Engineer Intern</h3>
-          <p class="text-slate-600 dark:text-slate-300">Built BenefitPlus end-to-end: a multi-tenant SaaS platform in React, TypeScript, Node.js, and PostgreSQL supporting student loan repayment benefits for 1,000+ employees. Designed normalized relational schema, managed database migrations using Drizzle ORM and built scalable REST APIs for contribution scheduling, escrow management and third-party loan servicer integrations.</p>
-        </li>
-        <li class="ms-4 mt-8">
-          <div class="absolute w-3 h-3 bg-sky-500 rounded-full -left-1.5 mt-2"></div>
-          <time class="text-sm text-slate-500">March 2025 - May 2026</time>
-          <h3 class="text-lg font-semibold">University of Southern California - Software Engineer Intern</h3>
-          <p class="text-slate-600 dark:text-slate-300">Designed and deployed full-stack features using C#, ASP .NET MVC, React, and SQL Server on Azure for university platforms serving 5,000+ active users, improving workflow efficiency by 30%. Optimized complex SQL Server queries against large-scale academic datasets and built automated reporting pipelines reducing turnaround by 40%.</p>
-        </li>
-        <li class="ms-4 mt-8">
-          <div class="absolute w-3 h-3 bg-sky-500 rounded-full -left-1.5 mt-2"></div>
-          <time class="text-sm text-slate-500">Jul 2022 - Dec 2024</time>
-          <h3 class="text-lg font-semibold">Deutsche Bank - Software Engineer (Senior Analyst), Non‑Financial Risk Management</h3>
-          <p class="text-slate-600 dark:text-slate-300">Led modernization of a legacy risk platform using Java, Spring Boot and microservices architecture, enabling 40% faster risk identification and reducing data retrieval latency by 26%. Productionized a BERT-based ML model for risk classification achieving 32% accuracy improvement, deployed via REST APIs on OpenShift Fabric and adopted across 15+ internal teams. Built distributed data pipelines and participated in agile, test-driven development with regular code reviews and technical design documentation.</p>
-        </li>
-        <li class="ms-4 mt-8">
-          <div class="absolute w-3 h-3 bg-sky-500 rounded-full -left-1.5 mt-2"></div>
-          <time class="text-sm text-slate-500">May 2021 - July 2021</time>
-          <h3 class="text-lg font-semibold">Samsung R&D Institute Bangalore - Research Intern</h3>
-          <p class="text-slate-600 dark:text-slate-300">Built an automated C++ performance profiling tool for multi-threaded 3D ultrasound imaging pipelines across 10+ modules, reducing manual debugging time by 36%. Identified CPU/GPU bottlenecks and optimized compute-intensive rendering pipelines, improving speed by 24% and reducing compute consumption by 20%.</p>
-        </li>
-        <li class="ms-4 mt-8">
-          <div class="absolute w-3 h-3 bg-sky-500 rounded-full -left-1.5 mt-2"></div>
-          <time class="text-sm text-slate-500">May 2020 - July 2020</time>
-          <h3 class="text-lg font-semibold">Earnvestt Technologies - Full stack engineer intern</h3>
-          <p class="text-slate-600 dark:text-slate-300">Worked with a backend engineering team to improve a high-traffic Django platform by restructuring API architecture, refactoring database queries and implementing caching, improving performance by 44% and cutting maintenance effort by 50%. Designed responsive web components supporting 1,000+ concurrent users and improved page load time by 35%.</p>
-        </li>
-      </ol>
+  </div>
+</section>
+
+<!-- ============================== EXPERIENCE ============================== -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">// experience</span>
+      <h2>Where I've built things</h2>
     </div>
-  </section>
-  
-  <!-- Projects -->
-  <section id="projects" class="py-16 border-t border-slate-200/70 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-end justify-between gap-4">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Featured Projects</h2>
-          <p class="mt-1 text-slate-600 dark:text-slate-300">Work I’m proud of. More on <a class="text-sky-600" href="https://github.com/unnati1401" target="_blank" rel="noreferrer">GitHub</a>.</p>
-        </div>
-        <a class="hidden md:inline-block px-4 py-2 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800" href="#">See all</a>
+    <div class="timeline reveal">
+
+      <div class="tl-item current">
+        <div class="tl-date">Feb 2026 — Present</div>
+        <div class="tl-role"><span class="co">Link Capital</span> · Software Engineer Intern</div>
+        <p>Built BenefitPlus end-to-end: a multi-tenant SaaS platform in React, TypeScript, Node.js, and PostgreSQL supporting student-loan repayment benefits for 1,000+ employees. Designed a normalized relational schema, managed migrations with Drizzle ORM, and built scalable REST APIs for contribution scheduling, escrow management, and third-party loan-servicer integrations.</p>
       </div>
 
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        
-        <article class="card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-          <a href="https://github.com/Unnati1401/raft-consensus" target="_blank" rel="noreferrer" class="block">
-            <img src="https://t3.ftcdn.net/jpg/05/49/66/10/360_F_549661096_ehKgCaLF0ZlisVj7ZvxCvscsnFQFHzrr.jpg" alt="Budgeting app" class="h-40 w-full object-cover" />
-          </a>
-          <div class="p-5">
-            <div class="flex items-center gap-2 text-xs text-slate-500"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">Distributed Systems</span></div>
-            <h3 class="mt-2 font-bold text-lg">Distributed Consensus System: Fault-Tolerant Raft Implementation</h3>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300"><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">C++</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">gRPC</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Systems Programming</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Fault Tolerance</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Consensus Algorithms</span></div>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">A production-grade implementation of the Raft consensus algorithm in C++ using gRPC, designed to ensure fault tolerance and high availability in distributed environments. The system implements leader election with randomized timeouts, log replication with quorum-based commit safety, and automatic failure recovery under network partitions. Built a fully replicated state machine handling stale RPCs, concurrent state updates, and network unreliability, validated for correctness through a multi-node distributed test suite simulating real-world failure scenarios.</p>
+      <div class="tl-item">
+        <div class="tl-date">Mar 2025 — May 2026</div>
+        <div class="tl-role"><span class="co">University of Southern California</span> · Software Engineer Intern</div>
+        <p>Designed and deployed full-stack features with C#, ASP.NET MVC, React, and SQL Server on Azure for platforms serving 5,000+ active users, improving workflow efficiency by 30%. Optimized complex SQL Server queries over large academic datasets and built automated reporting pipelines that cut turnaround by 40%.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Jul 2022 — Dec 2024</div>
+        <div class="tl-role"><span class="co">Deutsche Bank</span> · Software Engineer (Senior Analyst), Non-Financial Risk</div>
+        <p>Led modernization of a legacy risk platform using Java, Spring Boot, and microservices, enabling 40% faster risk identification and reducing data-retrieval latency by 26%. Productionized a BERT-based risk-classification model (32% accuracy improvement) served via REST APIs on OpenShift and adopted across 15+ internal teams. Built distributed data pipelines within an agile, test-driven workflow.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">May 2021 — Jul 2021</div>
+        <div class="tl-role"><span class="co">Samsung R&amp;D Institute, Bangalore</span> · Research Intern</div>
+        <p>Built an automated C++ performance-profiling tool for multi-threaded 3D ultrasound imaging pipelines across 10+ modules, cutting manual debugging time by 36%. Identified CPU/GPU bottlenecks and optimized rendering pipelines — 24% faster, 20% less compute.</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">May 2020 — Jul 2020</div>
+        <div class="tl-role"><span class="co">Earnvestt Technologies</span> · Full-Stack Engineer Intern</div>
+        <p>Improved a high-traffic Django platform by restructuring the API architecture, refactoring queries, and adding caching — 44% faster with 50% less maintenance effort. Built responsive components supporting 1,000+ concurrent users and cut page-load time by 35%.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROJECTS ============================== -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">// selected work</span>
+      <h2>Projects I'm proud of</h2>
+      <p>More on <a href="https://github.com/unnati1401" target="_blank" rel="noopener" style="color:var(--cyan)">GitHub ↗</a></p>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- RAG — IN PROGRESS. No fabricated metrics. -->
+      <article class="card reveal">
+        <div class="card-cover">
+          <div class="grid-bg" style="background:radial-gradient(circle at 30% 30%,#3a2a12,transparent 60%),radial-gradient(circle at 75% 70%,#12242e,transparent 55%),var(--surface);"></div>
+          <span class="badge wip">● In progress</span>
+        </div>
+        <div class="card-body">
+          <h3>Domain-Specific RAG Assistant + Evaluation Harness</h3>
+          <p>A retrieval-augmented QA system built with a rigorous eval harness — retrieval metrics, LLM-as-judge scoring, and a golden Q&amp;A set — so quality is measured, not assumed. FastAPI backend, ChromaDB (migrating to Qdrant), LangChain orchestration, React frontend.</p>
+          <div class="tags">
+            <span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">Vector DB</span>
+            <span class="tag">FastAPI</span><span class="tag">Evaluation</span><span class="tag">Python</span>
           </div>
-        </article>
-        <!-- Card 2 -->
-        
-        <article class="card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-          <a href="https://github.com/Unnati1401/ReaderVerse2.0" target="_blank" rel="noreferrer" class="block">
-            <img src="https://images.unsplash.com/photo-1633362057641-db95580aaef1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=1200&auto=format&fit=crop" alt="Budgeting app" class="h-40 w-full object-cover" />
-          </a>
-          <div class="p-5">
-            <div class="flex items-center gap-2 text-xs text-slate-500"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">App</span></div>
-            <h3 class="mt-2 font-bold text-lg">ReaderVerse: Hybrid Graph + Feature-Based Book Recommendation Engine</h3>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300"><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Django</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Neo4j</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PostgreSQL</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Knowledge Graph</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">REST APIs</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Geospatial Queries</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Google Maps API</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Web Scraping</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Selenium</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Spatial Data Modeling</span></div>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Personalized book recommendation platform combining collaborative filtering, content-based similarity and a Neo4j knowledge graph to deliver relevant recommendations across 207,572 books spanning 32 genres. Built on a dual-database architecture: Neo4j for graph-based recommendation logic and PostgreSQL/PostGIS for geospatial queries, the platform connects users to nearby NGOs, libraries, and book benefactors with traffic-aware routing via Google Maps API. Includes a real-time price comparison engine powered by a Selenium and BeautifulSoup web scraping pipeline across e-commerce platforms such as Amazon and Flipkart served through a Django REST API layer with an interactive map UI.</p>
+          <span class="card-link muted">Eval metrics + README coming soon</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-cover">
+          <div class="grid-bg" style="background:linear-gradient(135deg,#0f2530,#101820);background-image:radial-gradient(circle,#1e6f9233 1px,transparent 1px);background-size:16px 16px;"></div>
+          <span class="badge">Distributed Systems</span>
+        </div>
+        <div class="card-body">
+          <h3>Fault-Tolerant Raft Consensus in C++</h3>
+          <p>Production-grade Raft implementation in C++ with gRPC: leader election with randomized timeouts, quorum-committed log replication, and automatic recovery under network partitions. A fully replicated state machine validated against a multi-node failure-simulation test suite.</p>
+          <div class="tags">
+            <span class="tag">C++</span><span class="tag">gRPC</span><span class="tag">Consensus</span>
+            <span class="tag">Fault Tolerance</span><span class="tag">Systems</span>
           </div>
-        </article>
-        <!-- Card 3 -->
-        <article class="card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-          <a href="https://github.com/Unnati1401/Multi-Agent-Financial-Trading-Framework" target="_blank" rel="noreferrer" class="block">
-            <img src="https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=955&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=1200&auto=format&fit=crop" alt="Trading dashboard" class="h-40 w-full object-cover" />
-          </a>
-          <div class="p-5">
-            <div class="flex items-center gap-2 text-xs text-slate-500"><span class="px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">ML</span></div>
-            <h3 class="mt-2 font-bold text-lg">Multi Agent LLM Financial Trading Framework</h3>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300"><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">LLMs</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">FinBERT</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">OpenAI API</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Multi-Agent LLM Architecture</span></div>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">This project enhances a state-of-the-art multi-agent trading system by integrating FinBERT sentiment analysis to make trading decisions more consistent, explainable, and grounded in real financial data. The system improves agent reasoning through event detection, evidence-anchored debate protocols, and structured decision workflows. It demonstrates measurable gains in sentiment accuracy and trading logic reliability. </p>
+          <a class="card-link" href="https://github.com/Unnati1401/raft-consensus" target="_blank" rel="noopener">View repo →</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-cover">
+          <div class="grid-bg" style="background:linear-gradient(135deg,#1a1030,#101822);background-image:repeating-linear-gradient(45deg,#38bdf822 0 1px,transparent 1px 12px);"></div>
+          <span class="badge">Full-Stack · Data</span>
+        </div>
+        <div class="card-body">
+          <h3>ReaderVerse — Hybrid Graph + Feature Recommendation Engine</h3>
+          <p>Book recommender over 207K+ titles combining collaborative filtering, content similarity, and a Neo4j knowledge graph. Dual-database (Neo4j + PostgreSQL/PostGIS) with geospatial routing to nearby libraries and benefactors, plus a Selenium price-comparison pipeline behind a Django REST API.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Neo4j</span><span class="tag">PostGIS</span>
+            <span class="tag">Django</span><span class="tag">Knowledge Graph</span>
           </div>
-        </article>
-        <!-- Card 4 -->
-        <article class="card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-          <a href="https://github.com/Unnati1401/transfer-learning-image-classification" target="_blank" rel="noreferrer" class="block">
-            <img src="https://thedatafrog.com/static/blog/images/2019/10/dessin_transfer_learning_crop-1-1024x794.jpg" alt="Budgeting app" class="h-40 w-full object-cover" />
-          </a>
-          <div class="p-5">
-            <div class="flex items-center gap-2 text-xs text-slate-500"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">ML</span></div>
-            <h3 class="mt-2 font-bold text-lg">Transfer Learning for Multi-Class Image Classification</h3>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300"><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Computer Vision</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Image Classification</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Deep learning</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">OpenCV</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Data Augmentation</span></div>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">An end-to-end computer vision pipeline for classifying 17 types of jute pest using transfer learning on pre-trained deep learning architectures. Fine-tuned five models: ResNet50, EfficientNetB0, VGG16, DenseNet201, and ResNet100, freezing base layers and retraining fully connected heads with L2 regularization, batch normalization, dropout, and early stopping. Built a robust data preprocessing and augmentation pipeline using OpenCV and Keras ImageDataGenerator, applying cropping, rotation, flipping, zoom, and contrast adjustments to address class imbalance and improve generalization. Models were evaluated across Precision, Recall, F1, and AUC on stratified train/validation/test splits to identify the best-performing architecture.</p>
+          <a class="card-link" href="https://github.com/Unnati1401/ReaderVerse2.0" target="_blank" rel="noopener">View repo →</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-cover">
+          <div class="grid-bg" style="background:radial-gradient(circle at 70% 30%,#2a1420,transparent 55%),linear-gradient(135deg,#101820,#161020);"></div>
+          <span class="badge">AI / ML</span>
+        </div>
+        <div class="card-body">
+          <h3>Multi-Agent LLM Financial Trading Framework</h3>
+          <p>Extends a multi-agent trading system by integrating FinBERT sentiment analysis for more consistent, explainable, data-grounded decisions. Adds event detection, evidence-anchored debate protocols, and structured decision workflows — with measurable gains in sentiment accuracy and trading-logic reliability.</p>
+          <div class="tags">
+            <span class="tag">LLMs</span><span class="tag">FinBERT</span><span class="tag">Multi-Agent</span>
+            <span class="tag">OpenAI API</span><span class="tag">Python</span>
           </div>
-        </article>
-        <!-- Card 5 -->
-        <article class="card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-          <a href="https://ijsrem.com/download/edu-pro-blockchain-based-education-system" target="_blank" rel="noreferrer" class="block">
-            <img src="https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1200&auto=format&fit=crop" alt="Medical waveform" class="h-40 w-full object-cover" />
-          </a>
-          <div class="p-5">
-            <div class="flex items-center gap-2 text-xs text-slate-500"><span class="px-2 py-0.5 rounded-full bg-fuchsia-50 text-fuchsia-700 dark:bg-fuchsia-900/30 dark:text-fuchsia-300">Research</span></div>
-            <h3 class="mt-2 font-bold text-lg">Edu-Pro: Blockchain-Based Academic Credential & Verification System</h3>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300"><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Blockchain</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Smart Contracts</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Ethereum</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Solidity</span><span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MetaMask</span></div>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Edu-Pro is a decentralized education platform enabling secure credential storage, transcript issuance and verification using blockchain-based identity management. It eliminates manual verification, reduces fraud risk and ensures transparent tracking of academic achievements across institutions. The project explores distributed trust, immutability and smart-contract-driven record validation in the education domain.</p>
+          <a class="card-link" href="https://github.com/Unnati1401/Multi-Agent-Financial-Trading-Framework" target="_blank" rel="noopener">View repo →</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-cover">
+          <div class="grid-bg" style="background:linear-gradient(135deg,#10221c,#101820);background-image:radial-gradient(circle,#7ee0a822 1.5px,transparent 1.5px);background-size:20px 20px;"></div>
+          <span class="badge">AI / ML</span>
+        </div>
+        <div class="card-body">
+          <h3>Transfer Learning for Multi-Class Image Classification</h3>
+          <p>End-to-end CV pipeline classifying 17 jute-pest types via transfer learning. Fine-tuned five architectures (ResNet50, EfficientNetB0, VGG16, DenseNet201, ResNet101) with L2, batch-norm, dropout, and early stopping, plus an OpenCV/Keras augmentation pipeline to handle class imbalance. Evaluated on Precision, Recall, F1, and AUC.</p>
+          <div class="tags">
+            <span class="tag">PyTorch</span><span class="tag">Computer Vision</span><span class="tag">OpenCV</span>
+            <span class="tag">Transfer Learning</span>
           </div>
-        </article>
+          <a class="card-link" href="https://github.com/Unnati1401/transfer-learning-image-classification" target="_blank" rel="noopener">View repo →</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-cover">
+          <div class="grid-bg" style="background:linear-gradient(135deg,#111a26,#0f1620);background-image:repeating-linear-gradient(0deg,#38bdf81a 0 1px,transparent 1px 14px);"></div>
+          <span class="badge">Research · Publication</span>
+        </div>
+        <div class="card-body">
+          <h3>Edu-Pro — Blockchain Academic Credential System</h3>
+          <p>A decentralized education platform for secure credential storage, transcript issuance, and verification via blockchain identity management — eliminating manual verification, reducing fraud, and enabling transparent, immutable, smart-contract-driven record validation across institutions.</p>
+          <div class="tags">
+            <span class="tag">Blockchain</span><span class="tag">Solidity</span><span class="tag">Ethereum</span>
+            <span class="tag">Smart Contracts</span>
+          </div>
+          <a class="card-link" href="https://ijsrem.com/download/edu-pro-blockchain-based-education-system" target="_blank" rel="noopener">Read paper →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SKILLS ============================== -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">// toolkit</span>
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-block">
+        <h4>Languages</h4>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C++</span>
+          <span class="chip">C#</span><span class="chip">SQL</span><span class="chip">TypeScript</span>
+          <span class="chip">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Backend &amp; Frontend</h4>
+        <div class="chips">
+          <span class="chip">Spring Boot</span><span class="chip">Node.js</span><span class="chip">Express</span>
+          <span class="chip">React</span><span class="chip">ASP.NET MVC</span><span class="chip">Django</span>
+          <span class="chip">FastAPI</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Distributed Systems</h4>
+        <div class="chips">
+          <span class="chip">Raft Consensus</span><span class="chip">Fault Tolerance</span>
+          <span class="chip">Microservices</span><span class="chip">Distributed Pipelines</span>
+          <span class="chip">gRPC</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>AI / ML &amp; Data</h4>
+        <div class="chips">
+          <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">BERT / FinBERT</span>
+          <span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">Vector DBs</span>
+          <span class="chip">NLP</span><span class="chip">Computer Vision</span><span class="chip">ETL</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Databases &amp; Cloud</h4>
+        <div class="chips">
+          <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQL Server</span>
+          <span class="chip">Neo4j</span><span class="chip">ChromaDB</span><span class="chip">AWS</span>
+          <span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">OpenShift</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Tooling</h4>
+        <div class="chips">
+          <span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">REST APIs</span>
+          <span class="chip">Git</span><span class="chip">Postman</span><span class="chip">Tableau</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills -->
-  <section id="skills" class="py-16 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-200/70 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Skills</h2>
-      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Programming Languages</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Python, Java, C++, C#, SQL, Typescript, JavaScript, HTML5, CSS3</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Backend & Frontend</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Spring Boot, Node.js, Express.js, React.js, ASP .NET MVC, Django</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Databases and Cloud</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">PostgreSQL, MySQL, SQL Server, Neo4j, AWS, Azure, GCP, OpenShift Fabric</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Distributed Systems</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Raft Consensus, Fault Tolerance, Microservices, Distributed Data Pipelines</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">ML / Data</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">PyTorch, TensorFlow, Keras, BERT/FinBERT, Transfer Learning, NLP, Computer Vision, ETL Pipelines, Feature Engineering</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Software Tools</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">gRPC, REST APIs, Docker, Kubernetes, Git, Postman, Tableau Dashboard, Jupyter Notebook</p>
-        </div>
-        
+<!-- ============================== CONTACT ============================== -->
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="contact-card">
+      <span class="eyebrow">// contact</span>
+      <h2>Let's build something</h2>
+      <p>Best way to reach me is email — I check LinkedIn daily too. Open to full-time backend, distributed systems, infrastructure, and AI/ML roles starting January 2027.</p>
+      <div class="contact-links">
+        <a href="mailto:nandreka@usc.edu" class="btn btn-primary">nandreka@usc.edu</a>
+        <a href="https://www.linkedin.com/in/unnati-nandrekar/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+        <a href="https://github.com/unnati1401" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-16">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Contact</h2>
-      <p class="mt-3 text-slate-600 dark:text-slate-300">Best way to reach me is email. I also check LinkedIn daily.</p>
-      <div class="mt-6 grid gap-4">
-        <a class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 card" href="mailto:nandreka@usc.edu">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
-          <span>nandreka@usc.edu</span>
-        </a>
-        <a class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 card" href="https://www.linkedin.com/in/unnati-nandrekar/" target="_blank" rel="noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          <span>linkedin.com/in/unnati-nandrekar</span>
-        </a>
-        <a class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 card" href="https://github.com/unnati1401" target="_blank" rel="noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5A5.4 5.4 0 0 0 19 3s-1-.5-3 1.1a10.3 10.3 0 0 0-7 0C7 2.5 6 3 6 3a5.4 5.4 0 0 0-1 5.9C4 12.2 6 14.6 9 14a4.8 4.8 0 0 0-1 3.5v4"/></svg>
-          <span>github.com/unnati1401</span>
-        </a>
-      </div>
-    </div>
-  </section>
+<footer>
+  <div class="wrap">
+    <p>© 2026 Unnati Nandrekar · built on GitHub Pages</p>
+  </div>
+</footer>
 
-  <!-- Footer -->
-  <footer class="py-10 border-t border-slate-200/70 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-slate-600 dark:text-slate-400">© <span id="year"></span> Unnati. All rights reserved.</p>
-      <div class="text-xs text-slate-500">Built with ♥ on GitHub Pages.</div>
-    </div>
-  </footer>
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', false);
+    })
+  );
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
-    // Theme toggle
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const root = document.documentElement;
-      const isDark = root.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-
-    // Replace resume link (optional: set a file named resume.pdf at repo root)
-    const resumeUrl = 'resume.pdf'; // Change to Google Drive/Dropbox direct link if preferred
-    document.getElementById('resume-link').href = resumeUrl;
-  </script>
 </body>
 </html>
