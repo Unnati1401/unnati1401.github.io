@@ -384,7 +384,7 @@
         </div>
         <div class="card-body">
           <h3>Cognitive Speech Screening Agent: Interpretable Speech Biomarkers for Dementia</h3>
-          <p>An AI agent that turns a 60-second picture-description clip into an interpretable dementia-screening report: Whisper transcribes the audio, ~30 cognitive-linguistic markers are extracted (pauses, lexical diversity, syntactic complexity, discourse coherence), a logistic scorer flags risk against healthy-control norms, and a grounded LLM writes the clinician-facing report — with the model computing every number and the LLM only narrating it (validated, hallucination-guarded). Trained and evaluated on the PROCESS-2 clinical corpus (400 participants, official speaker-independent split), reaching 0.795 held-out AUC, with a logistic-vs-XGBoost comparison and a marker-family ablation. Shipped as a live Gradio demo on Hugging Face Spaces.</p>
+          <p>A speech-based dementia-screening agent: Whisper transcription → ~30 interpretable cognitive-linguistic markers → a trained risk scorer → a grounded LLM report where the model computes every figure and the LLM only narrates it. Evaluated on the PROCESS-2 clinical corpus (400 participants, speaker-independent split) at 0.795 held-out AUC. Live on Hugging Face Spaces.</p>
           <div class="tags">
             <span class="tag">Whisper</span><span class="tag">HuggingFace</span><span class="tag">LLM</span>
             <span class="tag">Python</span><span class="tag">spaCy</span><span class="tag">scikit-learn</span><span class="tag">Gradio</span>
@@ -400,7 +400,7 @@
         </div>
         <div class="card-body">
           <h3>GroundedRAG: an evaluation-driven RAG pipeline with multi-source grounding</h3>
-          <p>A retrieval-augmented QA system built with a rigorous eval harness - retrieval metrics, LLM-as-judge scoring, and a golden Q&amp;A set - so quality is measured, not assumed. FastAPI backend, ChromaDB (migrating to Qdrant), LangChain orchestration, React frontend.</p>
+          <p>A retrieval-augmented QA system built with a rigorous eval harness - retrieval metrics, LLM-as-judge scoring, and a golden Q&amp;A set, so quality is measured. FastAPI backend, ChromaDB (migrating to Qdrant), LangChain orchestration, React frontend.</p>
           <div class="tags">
             <span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">Vector DB</span>
             <span class="tag">FastAPI</span><span class="tag">Evaluation</span><span class="tag">Python</span>
