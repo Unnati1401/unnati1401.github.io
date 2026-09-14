@@ -317,7 +317,7 @@
       <span class="eyebrow">about</span>
       <p style="margin-top:14px">Currently completing my <strong>MS in Computer Science at USC</strong>
         (GPA 3.81, Dec 2026),
-        while interning as a software engineer at both <strong>Link Capital</strong> and the <strong>University of Southern California</strong> - building production full-stack platforms, scalable backend APIs, and data pipelines across both roles.</p>
+        while interning as a software engineer at both <strong>Link Capital Solutions</strong> and the <strong>University of Southern California</strong> - building production full-stack platforms, scalable backend APIs, and data pipelines across both roles.</p>
       <p>My background spans systems-level work (a distributed consensus engine, C++ performance profiling at Samsung R&amp;D), production backend at scale (risk platforms and ML services at Deutsche Bank), and full-stack SaaS. I like the hard parts: consistency guarantees, failure recovery, and making data-heavy systems fast.</p>
     </div>
   </div>
@@ -334,7 +334,7 @@
 
       <div class="tl-item current">
         <div class="tl-date">Feb 2026 - Present</div>
-        <div class="tl-role"><span class="co">Link Capital</span> · Software Engineer Intern</div>
+        <div class="tl-role"><span class="co">Link Capital Solutions</span> · Software Engineer Intern</div>
         <p>Own end-to-end development of BenefitPlus, a multi-tenant employer-benefits SaaS platform (Node.js, TypeScript, Express, PostgreSQL, React). Designed a normalized multi-tenant PostgreSQL schema - migrating off loosely-structured JSON - and built REST APIs across the full benefits lifecycle: employer onboarding, a configurable eligibility engine, contribution scheduling, escrow funding, billing, and payments. Integrated third-party financial APIs for ACH and bank-linking, and deployed on AWS (EC2, RDS, S3/CloudFront) with automated CI/CD.</p>
       </div>
 
@@ -377,11 +377,26 @@
 
     <div class="proj-grid">
 
-      <!-- RAG - IN PROGRESS. No fabricated metrics. -->
       <article class="card reveal">
         <div class="card-cover">
           <div class="grid-bg" style="background:radial-gradient(circle at 30% 30%,#3a2a12,transparent 60%),radial-gradient(circle at 75% 70%,#12242e,transparent 55%),var(--surface);"></div>
-          <span class="badge wip">● In progress</span>
+          <span class="badge wip">AI/ML</span>
+        </div>
+        <div class="card-body">
+          <h3>Cognitive Speech Screening Agent: Interpretable Speech Biomarkers for Dementia</h3>
+          <p>An AI agent that turns a 60-second picture-description clip into an interpretable dementia-screening report: Whisper transcribes the audio, ~30 cognitive-linguistic markers are extracted (pauses, lexical diversity, syntactic complexity, discourse coherence), a logistic scorer flags risk against healthy-control norms, and a grounded LLM writes the clinician-facing report — with the model computing every number and the LLM only narrating it (validated, hallucination-guarded). Trained and evaluated on the PROCESS-2 clinical corpus (400 participants, official speaker-independent split), reaching 0.795 held-out AUC, with a logistic-vs-XGBoost comparison and a marker-family ablation. Shipped as a live Gradio demo on Hugging Face Spaces.</p>
+          <div class="tags">
+            <span class="tag">Whisper</span><span class="tag">HuggingFace</span><span class="tag">LLM</span>
+            <span class="tag">Python</span><span class="tag">spaCy</span><span class="tag">scikit-learn</span><span class="tag">Gradio</span>
+          </div>
+          <a class="card-link" href="https://github.com/Unnati1401/Cognitive-speech-voice-agent" target="_blank" rel="noopener">View repo →</a>
+        </div>
+      </article>
+         
+      <article class="card reveal">
+        <div class="card-cover">
+          <img class="cover-img" src="https://t3.ftcdn.net/jpg/05/49/66/10/360_F_549661096_ehKgCaLF0ZlisVj7ZvxCvscsnFQFHzrr.jpg" alt="Fault-tolerant Raft consensus system" loading="lazy" />
+          <span class="badge">RAG</span>
         </div>
         <div class="card-body">
           <h3>GroundedRAG: an evaluation-driven RAG pipeline with multi-source grounding</h3>
